@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <script>
+      function setRootFontSize() {
+        // const fontSize =  100 * Math.min(/* 限制最大屏幕宽度 */750, window.innerWidth) / 375;
+        const fontSize =  100 * Math.min(/* 限制最大屏幕宽度 */750, screen.width) / 375;
+        document.documentElement.style.fontSize = fontSize + 'px'; // 设置更目录字体 1rem 对应100px
+      }
+
+      document.addEventListener('readystatechange', function () {
+        if (document.readyState === 'interactive') {
+          setRootFontSize();
+
+          // iphone 7 12.1.4
+          // console.warn('---- window.innerWidth ----', window.innerWidth); // 980
+          // console.warn('---- window.outerWidth ----', window.outerWidth); // 0
+          // console.warn('---- screen.width ----', screen.width); // 375
+        }
+      });
+      document.documentElement.style.setProperty('--device-pixel-ratio', window.devicePixelRatio);
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

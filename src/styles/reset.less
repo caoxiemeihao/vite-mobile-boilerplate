@@ -1,0 +1,159 @@
+/*! Pure v0.6.0 | Yahoo! Inc. | BSD License */
+
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+// 字体族
+@font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif: Georgia, "Times New Roman", Times, serif;
+@font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base: @font-family-sans-serif;
+
+// 所有的标准 HTML5 标签
+// https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5/HTML5_element_list
+html,
+head,
+title,
+base,
+link,
+meta,
+style,
+script,
+noscript,
+template,
+body,
+section,
+nav,
+article,
+aside,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+footer,
+address,
+main,
+p,
+hr,
+pre,
+blockquote,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+figure,
+figcaption,
+div,
+a,
+em,
+strong,
+small,
+s,
+cite,
+q,
+dfn,
+abbr,
+data,
+time,
+code,
+var,
+samp,
+kbd,
+sub,
+i,
+span,
+br,
+wbr,
+ins,
+del,
+img,
+iframe,
+embed,
+object,
+param,
+video,
+audio,
+source,
+track,
+canvas,
+map,
+area,
+svg,
+table,
+caption,
+colgroup,
+col,
+tbody,
+thead,
+tfoot,
+tr,
+td,
+th,
+form,
+fieldset,
+legend,
+label,
+input,
+button,
+select,
+datalist,
+optgroup,
+option,
+textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  scroll-behavior: smooth;
+  text-decoration: none;
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+html {
+  // 阻止 iOS 屏幕翻转后字体调整, 不影响用户缩放
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  max-width: 750px;
+  min-width: 320px;
+  background-color: @color-bg;
+  line-height: 1.4;
+  font-family: @font-family-base;
+  font-size: 12px;
+  color: @gray-1;
+  user-select: none;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+@supports (bottom: constant(safe-area-inset-bottom)) or (bottom: env(safe-area-inset-bottom)) {
+  /* body {
+    // padding-top: env(safe-area-inset-top);
+    // padding-top: constant(safe-area-inset-top);
+
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+  } */
+
+  .adapter-iphonex {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
