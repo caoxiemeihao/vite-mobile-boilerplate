@@ -17,8 +17,7 @@
     "autoprefixer": "^10.4.2",
     "less": "^4.1.2",
     "postcss-pxtorem": "^6.0.0",
-    "vite": "^2.8.3",
-    "vite-plugin-importer": "^0.2.5"
+    "vite": "^2.8.3"
   },
   "dependencies": {
     "antd-mobile": "^5.0.0-rc.27",
