@@ -11,9 +11,32 @@
       // https://developer.mozilla.org/zh-CN/docs/Web/API/Window/devicePixelRatio
       document.documentElement.style.setProperty('--device-pixel-ratio', window.devicePixelRatio);
 
+      // https://stackoverflow.com/questions/6249722/detect-ipad-orientation-change
+      window.detectIPadOrientation = function () {
+        let text;
+        let orientation;
+        if (window.orientation == 0) {
+          text = 'Portrait Mode, Home Button bottom';
+          orientation = 'portrait';
+        } else if (window.orientation == 90) {
+          text = 'Landscape Mode, Home Button right';
+          orientation = 'landscape';
+        } else if (window.orientation == -90) {
+          text = 'Landscape Mode, Home Button left';
+          orientation = 'landscape';
+        } else if (window.orientation == 180) {
+          text = 'Portrait Mode, Home Button top';
+          orientation = 'portrait';
+        }
+        return { text, orientation };
+      }
+
       function setRootFontSize() {
-        const fontSize =  100 * (screen.width > screen.height ? screen.height : screen.width) / 820; // 以 iPad Air 为例等比例缩放
-        document.documentElement.style.fontSize = `${fontSize}px`; // 设置更目录字体 1rem 对应100px
+        const ratio =  window.detectIPadOrientation().orientation === 'portrait'
+          // 以 iPad Air 为例等比例缩放
+          ? screen.width / 820
+          : screen.height / 820;
+        document.documentElement.style.fontSize = `${ratio * 100}px`; // 设置更目录字体 1rem 对应100px
       } setRootFontSize();
 
       document.addEventListener('orientationchange', setRootFontSize);
