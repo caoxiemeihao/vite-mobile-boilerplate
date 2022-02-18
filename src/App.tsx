@@ -1,31 +1,13 @@
 import { useState } from 'react';
-import { Button, Dialog } from 'antd-mobile'
-import styles from './App.module.less';
+import Home from './views/home';
+import Login from './views/login';
 
 export default () => {
-  const [counter, setCounter] = useState(0);
+  const [logined, setLogined] = useState(false);
 
-  const clickBtn = () => {
-    setCounter(counter + 1);
+  const clickLogin = () => {
+    setLogined(true);
   };
 
-  const clickAlert = () => {
-    Dialog.alert({
-      content: '人在天边月上明',
-      onConfirm: () => {
-        console.log('Confirmed')
-      },
-    })
-  };
-
-  return (
-    <div className={styles.app}>
-      <div className="box">
-        <div>{counter}</div>
-        <Button onClick={clickBtn}>按钮</Button>
-        <div />
-        <Button color='primary' onClick={clickAlert}>弹窗</Button>
-      </div>
-    </div>
-  );
+  return logined ? <Home /> : <Login onClick={clickLogin} />;
 };

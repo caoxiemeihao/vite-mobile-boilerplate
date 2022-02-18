@@ -1,0 +1,13 @@
+.container {
+  // 顶层 className 会被编译成命名空间，使用 className={styles.name} 形式
+  height: 100%;
+
+  :global {
+    // :global 里面的样式不会变编译命名空间，使用 className="name" 形式
+
+    .box {
+      height: 170px;
+      background-color: aliceblue;
+    }
+  }
+}
