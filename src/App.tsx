@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { Button, Dialog } from 'antd-mobile'
 import styles from './App.module.less';
 
-console.log(styles);
-
 export default () => {
   const [counter, setCounter] = useState(0);
 
