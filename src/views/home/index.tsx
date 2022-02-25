@@ -21,7 +21,7 @@ export default () => {
   return (
     <div className={styles.container}>
       <div className="box">
-        <div>{counter}</div>
+        <div className='rounded p-1 bg-pink-200'>{counter}</div>
         <Button onClick={clickBtn}>按钮</Button>
         <div />
         <Button color='primary' onClick={clickAlert}>弹窗</Button>
